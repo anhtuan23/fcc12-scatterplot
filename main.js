@@ -30,14 +30,14 @@ d3.json("cyclist-data.json").then(dataset => {
     .data(dataset)
     .enter()
     .append('circle')
-    .classed('circle', true)
+    .classed('dot', true)
     .attr('fill', d => getDotColor(d))
     .attr('stroke', "black")
     .attr('r', radius)
-    .attr('cx', d => {
-      return xScale(d.Year);
-    })
+    .attr('cx', d =>  xScale(d.Year))
+    .attr('data-xvalue', d => d.Year)//for FCC test
     .attr('cy', d => yScale(d.Seconds))
+    .attr('data-yvalue', d => new Date(d.Seconds * 1000))//for FCC test
     .on("mouseover", function (d) {
       d3.select(this).attr("fill", "aqua");
 
@@ -46,6 +46,7 @@ d3.json("cyclist-data.json").then(dataset => {
       var yPosition = parseInt(d3.select(this).attr("cy")) + titleHeight;
       //Update the tooltip position and value
       const tooltip = d3.select("#tooltip")
+        .attr("data-year", d.Year)//for FCC test
         .style("left", xPosition + "px")
         .style("top", yPosition + "px");
       tooltip.select("#name").text(d.Name + ": " + d.Nationality);
@@ -100,14 +101,14 @@ d3.json("cyclist-data.json").then(dataset => {
     .range([noDopingColor, dopingColor]);
 
   svg.append("g")
-    .attr("class", "legendOrdinal")
+    .attr("id", "legend")
     .attr("transform", `translate(${margin.left + contentWidth - 300}, ${margin.top + 100})`);
 
   var legendOrdinal = d3.legendColor()
     .shapePadding(10)
     .scale(ordinal);
 
-  svg.select(".legendOrdinal")
+  svg.select("#legend")
     .call(legendOrdinal);
 });
 
