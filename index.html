@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Scatter Plot</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="#" />
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-  <script src="main.js"></script>
+  <script src="d3/d3.v5.js" defer></script>
+  <script src="d3/d3-legend.js" defer></script>
+  <script src="main.js" defer></script>
+
 </head>
+
 <body>
-  
+  <div id="wrapper">
+    <p id="title">Doping in Professional Bicycle Racing</p>
+    <p id="subtitle">35 Fastest times up Alpe d'Huez</p>
+    <div id="tooltip" class="hidden">
+      <p id="name"></p>
+      <p id="time"></p>
+      <p id="doping"></p>
+    </div>
+    <svg></svg>
+    <div id="source">More Information: http://www.bea.gov/national/pdf/nipaguid.pdf</div>
+  </div>
 </body>
+
 </html>

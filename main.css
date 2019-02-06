@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#wrapper {
+  width: 1000px;
+  height: 620px;
+  position: relative;/*tooltip position is absolute relative to positioned parent https://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent*/
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#title {
+  font-size: 36px;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+#subtitle {
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+#tooltip {
+  position: absolute;
+  height: auto;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: aqua;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  text-align: left;
+}
+#tooltip.hidden {
+  display: none;
+}
+#tooltip p {
+  margin: 0;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+#source{
+  text-align: end;
+  font-style: italic;
+  margin: 10px;
+}
